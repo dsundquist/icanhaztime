@@ -742,7 +742,7 @@ validTimezones = [
         "content-type": "text/html;charset=UTF-8",
       },}) 
     
-    // Returing a Specific Timezone 
+    // Returing help print out 
     } else {
   
       return new Response(
