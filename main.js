@@ -628,7 +628,7 @@ validTimezones = [
             "\thttps://icanhaztime.com/getzones\n" +
             "\t\t- List all available zones, \n" +  
             "\t\t  Only request the last part, ie. America/Chicago -> Chicago\n" + 
-            "\n\tNote: I've not considered 30min Timzones in this yet..."
+            "\n\tNote: I've not considered 30min Timzones in this yet...\n"
             ); 
     }
     
@@ -697,7 +697,7 @@ validTimezones = [
             }
     
             if(locale == "DEFAULT"){
-                locale = request.cf.timezone
+                return getHelp(request)
             }
     
         }
@@ -711,7 +711,7 @@ validTimezones = [
     
         if (validTimezones.includes(locale)) { // We're checking that massive array on top first, so we can eliminate reads from KV 
             // Lookup Locale in KV 
-            const values = await TIMEZONES.get(locale)
+            const values = await TIMEZONES.get(locale) 
             if (!daylightsavings) { 
                 offset = values.split(",")[0]  // Really should be checking this here 
             } else {
@@ -801,4 +801,4 @@ validTimezones = [
       return await getHelp(request);
     
     }
-    
+
