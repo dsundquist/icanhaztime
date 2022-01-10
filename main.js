@@ -617,7 +617,7 @@ validTimezones = [
     */
     function getHelp(request){
         return new Response(
-            "You requested    " + request.url + "\n" +  
+            "You requested    :" + request.url + "\n" +  
             "Available Options: \n" +
             "\thttps://icanhaztime.com/\n" +
             "\t\t- Prints just the current time in UTC\n" +
@@ -801,4 +801,5 @@ validTimezones = [
       return await getHelp(request);
     
     }
-
+    
+    
