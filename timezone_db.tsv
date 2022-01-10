@@ -1,5 +1,4 @@
-TZ	Database	NAME
-		
+TZ_Database_NAME	UTC_Offset	UTC_DST_Offset
 Africa/Abidjann	+00:00	+00:00
 Africa/Accra	+00:00	+00:00
 Africa/Addis_Ababa	+03:00	+03:00
