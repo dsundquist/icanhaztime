@@ -7,10 +7,13 @@ Source: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 Available options:
 	https://icanhaztime.com/
-	https://icanhaztime.com/all
+		- Prints just the current time in UTC
+	https://icanhaztime.com/local 	
+		- Prints 24 timezones, highlight UTC and local
+	https://icanhaztime.com/Chicago
+		- Prints locale, see icanhaztime.com/getzones
 	https://icanhaztime.com/getzones
+		- List all available zones, only request the last part, ie. America/Chicago -> Chicago
 
 Todo options: 
-	https://icanhaztime.com/local <--- print just the local time
-	https://icanhaztime.com/Chicago <- print this locale
-	https://icahaztime.com/Chicago?setHour=01&setMin=59 <- print Chicago like this and other zones 
+	https://icahaztime.com/Chicago?setHour=01&setMin=59 <- set a zone's time and print others 
