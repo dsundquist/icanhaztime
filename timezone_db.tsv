@@ -435,7 +435,7 @@ Europe/Bratislava	+01:00	+02:00
 Europe/Brussels	+01:00	+02:00
 Europe/Bucharest	+02:00	+03:00
 Europe/Budapest	+01:00	+02:00
-Europe/Busingen		+01:00
+Europe/Busingen +01:00  +02:00
 Europe/Chisinau	+02:00	+03:00
 Europe/Copenhagen	+01:00	+02:00
 Europe/Dublin	+01:00	+00:00
@@ -446,7 +446,7 @@ Europe/Isle_of_Man	+00:00	+01:00
 Europe/Istanbul	+03:00	+03:00
 Europe/Jersey	+00:00	+01:00
 Europe/Kaliningrad	+02:00	+02:00
-Europe/Kiev	Ukraine	+02:00
+Europe/Kiev +02:00  +03:00
 Europe/Kirov	+03:00	+03:00
 Europe/Lisbon	+00:00	+01:00
 Europe/Ljubljana	+01:00	+02:00
