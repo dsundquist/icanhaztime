@@ -1,5 +1,5 @@
 
-# A worker script located at https://www.icanhaztime.com
+### A worker script located at https://www.icanhaztime.com
 
 Time Zone data can be populated from, timezone_db.tsv or timezone_db_api_call
 
