@@ -617,7 +617,8 @@ validTimezones = [
     */
     function getHelp(request){
         return new Response(
-            "You requested    :" + request.url + "\n" +  
+            "You requested:\n" +
+            "\t" + request.url + "\n" +  
             "Available Options: \n" +
             "\thttps://icanhaztime.com/\n" +
             "\t\t- Prints just the current time in UTC\n" +
@@ -625,7 +626,7 @@ validTimezones = [
             "\t\t- Prints 24 timezones, highlight UTC and local\n" +
             "\thttps://icanhaztime.com/Chicago\n" +
             "\t\tPrints locale, see icanhaztime.com/getzones\n" +
-            "\thttps://icanhaztime.com/getzones\n" +
+            "\thttps://icanhaztime.com/getzones\n" + 
             "\t\t- List all available zones, \n" +  
             "\t\t  Only request the last part, ie. America/Chicago -> Chicago\n" + 
             "\n\tNote: I've not considered 30min Timzones in this yet...\n"
@@ -638,7 +639,7 @@ validTimezones = [
       const printZones = new Map();
     
       // Returning Just UTC 
-      if (request.url == "https://icanhaztime.com/" || 
+      if (request.url == "https://icanhaztime.com/" ||  
           request.url == "http://icanhaztime.com/" || 
           request.url == "https://www.icanhaztime.com/" || 
           request.url == "http://www.icanhaztime.com/" || 
