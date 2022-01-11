@@ -720,7 +720,7 @@ async function handleRequest(request) {
         pathArray[i] = request.cf.timezone
 
       for (j = 0; j < validTimezones.length; j++){
-        if (validTimezones[j].includes(pathArray[i])) {
+        if (validTimezones[j].toLowerCase().includes(pathArray[i].toLowerCase())) {
             locale = validTimezones[j] // looks like we're just grabbing the last best hit 
             values = await TIMEZONES.get(locale) 
             if (!daylightsavings) { 
