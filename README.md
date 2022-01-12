@@ -17,7 +17,11 @@ Available options:
 		- List all available zones, only request the last part, ie. America/Chicago -> Chicago
 ```
 
-Todo options: 
+Todo options:
+
+How to anwser the question, "I have a meeting at 2:00UTC what is this in CST?"
+
+ 
 ```
 	https://icahaztime.com/Chicago?setHour=01&setMin=59 <- set a zone's time and print others 
 ```
