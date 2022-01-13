@@ -637,9 +637,8 @@ function getHelp(request){
 }
 
 // +01:00 -> Mon Jan 10 2022 23:36:22 +01:00
-function getZone(offset){
-  let myDate = new Date()
-  
+function getZone(offset, myDate){
+  saveTheDate = myDate
   offsetArray = offset.split(":")
   if (offsetArray.length != 2){
     return "1. Error looking up: " + offset + "\n"
@@ -673,7 +672,9 @@ function getZone(offset){
 
       // Set the return date
       myDate.setHours(myDate.getHours()+myHourOffsetInt)
-      return myDate.toString().substr(0,24) + " " + offset
+      retString = myDate.toString().substr(0,24) + " " + offset
+      myDate.setHours(myDate.getHours()-myHourOffsetInt)
+      return retString
     }
   }
 
@@ -688,7 +689,8 @@ async function handleRequest(request) {
   let local = ""
   let offset = ""
   let values = ""
-
+  let myDate = new Date()
+  
   // Create a path array https://icanhaztime.com/my/path -> ["my","path"]
   pathArray = getPathArray(request)
   
@@ -709,10 +711,40 @@ async function handleRequest(request) {
   
   for (i = 0; i < pathArray.length; i++){
     offset = ""
-    locale = ""
+    locale = "" 
+
     if (pathArray[i] == ""){
-      //print UTC
-      html += Date().toString().substr(0,24) + " +00:00 \n"
+       html += getZone("+00:00", myDate) + "\n"
+
+    } else if (pathArray[i].substr(0,3) == "set") {
+      // Set the date 
+      // set?h=1&m=2
+      // Split on ?, make sure its 2 values
+      // split on &, make sure its at least 1
+      // For each split on =, make sure its 2 
+      // html += "Entering Set\n"
+      mySetArray = pathArray[i].split("?")
+      if (mySetArray.length != 2) {
+          // html += "Error 1 \n"
+          break;
+      }
+      mySetArray = mySetArray[1].split("&")
+      if (mySetArray.length < 1) {
+        // html += "Error 2 \n"
+        break;
+      }
+      for (j = 0; j < mySetArray.length; j++) {
+        myKeyValue = mySetArray[j].split("=")
+        if (myKeyValue.length != 2){
+          html += "Error attempting to set: \"" + myKeyValue.toString() + "\"\n"
+        } else {
+          if (myKeyValue[0].toString() == "h"){
+            html += "Setting Hours to: " + myKeyValue[1] + "\n"
+            myDate.setHours(parseInt(myKeyValue[1]))
+          }
+        }
+      }
+
     } else {
       //try to find the location in the massive array first 
 
@@ -735,9 +767,9 @@ async function handleRequest(request) {
         html += "Error looking up: " + pathArray[i] + "\n" 
       } else {  
         if (pathArray.length == 1)
-          html += getZone(offset) + "\n"
+          html += getZone(offset, myDate) + "\n"
         else
-          html += getZone(offset) + " <-- " + locale + "\n"
+          html += getZone(offset, myDate) + " <-- " + locale + "\n"
       }
     }
   }
