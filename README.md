@@ -25,7 +25,7 @@ curl https://www.icanhaztime.com/UTC/New_York
 ```
 curl https://www.icanhaztime.com/Non-Existent
     -Returns:
-    Cannot find "Non-Existent", see https://www.icanhaztime.com/help
+	Error looking up: Non-Existent
 ```
 ```
 curl https://www.icanhaztime.com/getzones
