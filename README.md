@@ -5,18 +5,7 @@ Time Zone data can be populated from, timezone_db.tsv or timezone_db_api_call
 
 Source: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-```
-Available options:
-	https://icanhaztime.com/
-		- Prints just the current time in UTC
-	https://icanhaztime.com/local 	
-		- Prints 24 timezones, highlight UTC and local
-	https://icanhaztime.com/Chicago
-		- Prints locale, see icanhaztime.com/getzones
-	https://icanhaztime.com/getzones
-		- List all available zones, only request the last part, ie. America/Chicago -> Chicago
-```
-Examples: 
+### Working Examples: 
 ```
 curl https://www.icanhaztime.com/
     -Returns:
@@ -33,6 +22,20 @@ curl https://www.icanhaztime.com/UTC/New_York
     Mon Jan 10 2022 23:36:22 +00:00 <--- UTC
     Mon Jan 10 2022 18:36:22 -05:00 <--- America/New_York
 ```
+```
+curl https://www.icanhaztime.com/Non-Existent
+    -Returns:
+    Cannot find "Non-Existent", see https://www.icanhaztime.com/help
+```
+```
+curl https://www.icanhaztime.com/getzones
+    Africa/Abidjann
+    ...
+    Zulu
+```
+
+### TODO: 
+
 ```
 curl https://www.icanhaztime.com/all
     -Returns:
@@ -96,19 +99,6 @@ curl https://www.icanhaztime.com/all/New_York
     Tue Jan 11 2022 10:51:43 +11:00
     Tue Jan 11 2022 11:51:43 +12:00
 ```
-
-curl https://www.icanhaztime.com/Non-Existent
-    -Returns:
-    Cannot find "Non-Existent", see https://www.icanhaztime.com/help
-
-curl https://www.icanhaztime.com/getzones
-    Africa/Abidjann
-    ...
-    Zulu
-
-
-
-Todo options:
 
 How to anwser the question, "I have a meeting at 2:00UTC what is this in CST?"
  
