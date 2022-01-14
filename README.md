@@ -19,7 +19,7 @@ curl https://www.icanhaztime.com/New_York
     Mon Jan 10 2022 18:36:22 -05:00
 ```
 
-The each additional add to the path prints more output
+Each additional addition to the path prints more output
 
 ```
 curl https://www.icanhaztime.com/UTC/New_York
@@ -33,7 +33,7 @@ Error if it was unable to locate your zone:
 ```
 curl https://www.icanhaztime.com/Non-Existent
     -Returns:
-	Error looking up: Non-Existent
+Error looking up: Non-Existent
 ```
 
 You can list all zones, use only the last part if there is a '/', America/Chicago -> Chicago
@@ -77,7 +77,7 @@ curl https://www.icanhaztime.com/all
     Tue Jan 11 2022 11:51:43 +12:00
 ```
 
-Set the UTC time to something else, using the a format similar to the UNIX date format: %m/%d/%y  %H:%M:%S
+Set the UTC time to something else, using the format similar to the UNIX date format: %m/%d/%y  %H:%M:%S
 
 ```
 curl "https://www.icanhaztime.com/set?m=1&d=18&y=1986&H=12&M=30&S=30"
