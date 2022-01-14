@@ -33,7 +33,7 @@ Error if it was unable to locate your zone:
 ```
 curl https://www.icanhaztime.com/Non-Existent
     -Returns:
-Error looking up: Non-Existent
+    Error looking up: Non-Existent
 ```
 
 You can list all zones, use only the last part if there is a '/', America/Chicago -> Chicago
@@ -81,8 +81,8 @@ Set the UTC time to something else, using the format similar to the UNIX date fo
 
 ```
 curl "https://www.icanhaztime.com/set?m=1&d=18&y=1986&H=12&M=30&S=30"
-	-Returns: 
-	Sat Jan 18 1986 12:30:30 +00:00 <-- SET CMD 
+    -Returns: 
+    Sat Jan 18 1986 12:30:30 +00:00 <-- SET CMD 
 ```
 
 Set will apply to subsequent requests 
@@ -90,32 +90,32 @@ Set will apply to subsequent requests
 ```
 curl "http://www.icanhaztime.com/set?m=1&d=18&y=1986&H=12&M=30&S=30/all"
 	-Returns: 
-	Sat Jan 18 1986 12:30:30 +00:00 <-- SET CMD
-	Sat Jan 18 1986 00:30:30 -12:00
-	Sat Jan 18 1986 01:30:30 -11:00
-	Sat Jan 18 1986 02:30:30 -10:00
-	Sat Jan 18 1986 03:30:30 -09:00
-	Sat Jan 18 1986 04:30:30 -08:00
-	Sat Jan 18 1986 05:30:30 -07:00
-	Sat Jan 18 1986 06:30:30 -06:00
-	Sat Jan 18 1986 07:30:30 -05:00
-	Sat Jan 18 1986 08:30:30 -04:00
-	Sat Jan 18 1986 09:30:30 -03:00
-	Sat Jan 18 1986 10:30:30 -02:00
-	Sat Jan 18 1986 11:30:30 -01:00
-	Sat Jan 18 1986 12:30:30 +00:00 <-- UTC
-	Sat Jan 18 1986 13:30:30 +01:00
-	Sat Jan 18 1986 14:30:30 +02:00
-	Sat Jan 18 1986 15:30:30 +03:00
-	Sat Jan 18 1986 16:30:30 +04:00
-	Sat Jan 18 1986 17:30:30 +05:00
-	Sat Jan 18 1986 18:30:30 +06:00
-	Sat Jan 18 1986 19:30:30 +07:00
-	Sat Jan 18 1986 20:30:30 +08:00
-	Sat Jan 18 1986 21:30:30 +09:00
-	Sat Jan 18 1986 22:30:30 +10:00
-	Sat Jan 18 1986 23:30:30 +11:00
-	Sun Jan 19 1986 00:30:30 +12:00
+    Sat Jan 18 1986 12:30:30 +00:00 <-- SET CMD
+    Sat Jan 18 1986 00:30:30 -12:00
+    Sat Jan 18 1986 01:30:30 -11:00
+    Sat Jan 18 1986 02:30:30 -10:00
+    Sat Jan 18 1986 03:30:30 -09:00
+    Sat Jan 18 1986 04:30:30 -08:00
+    Sat Jan 18 1986 05:30:30 -07:00
+    Sat Jan 18 1986 06:30:30 -06:00
+    Sat Jan 18 1986 07:30:30 -05:00
+    Sat Jan 18 1986 08:30:30 -04:00
+    Sat Jan 18 1986 09:30:30 -03:00
+    Sat Jan 18 1986 10:30:30 -02:00
+    Sat Jan 18 1986 11:30:30 -01:00
+    Sat Jan 18 1986 12:30:30 +00:00 <-- UTC
+    Sat Jan 18 1986 13:30:30 +01:00
+    Sat Jan 18 1986 14:30:30 +02:00
+    Sat Jan 18 1986 15:30:30 +03:00
+    Sat Jan 18 1986 16:30:30 +04:00
+    Sat Jan 18 1986 17:30:30 +05:00
+    Sat Jan 18 1986 18:30:30 +06:00
+    Sat Jan 18 1986 19:30:30 +07:00
+    Sat Jan 18 1986 20:30:30 +08:00
+    Sat Jan 18 1986 21:30:30 +09:00
+    Sat Jan 18 1986 22:30:30 +10:00
+    Sat Jan 18 1986 23:30:30 +11:00
+    Sun Jan 19 1986 00:30:30 +12:00
 ```
 
 ## TODO?: 
