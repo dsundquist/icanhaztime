@@ -773,13 +773,13 @@ async function handleRequest(request) {
           if (myKeyValue[0].toString() == "y"){
             myDate.setFullYear(parseInt(myKeyValue[1]))
           }
-          if (myKeyValue[0].toString() == "H"){
+          if (myKeyValue[0].toString() == "H" || myKeyValue[0].toString() == "h"){
             myDate.setHours(parseInt(myKeyValue[1]))
           }
           if (myKeyValue[0].toString() == "M"){
             myDate.setMinutes(parseInt(myKeyValue[1]))
           }
-          if (myKeyValue[0].toString() == "S"){
+          if (myKeyValue[0].toString() == "S" || myKeyValue[0].toString() == "s"){
             myDate.setSeconds(parseInt(myKeyValue[1]))
           }
         }
