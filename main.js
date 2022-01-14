@@ -650,7 +650,7 @@ function getZone(offset, myDate){
     } else {
 
       // Analyze the first character is it a '−' or '+'
-      if (myHours.charAt(0) == '−'){
+      if (myHours.charAt(0) == '−' || myHours.charAt(0) == '-'){
           isNegative = true 
       } else if ((myHours.charAt(0) == '+')) {
           isNegative = false
@@ -716,6 +716,32 @@ async function handleRequest(request) {
     if (pathArray[i] == ""){
        html += getZone("+00:00", myDate) + "\n"
 
+    } else if (pathArray[i].substr(0,2) == "br") { 
+      html += "=============================== \n"
+
+    } else if (pathArray[i].substr(0,3) == "all") { 
+
+      for (j = -12; j <= 12; j++){
+        if ( j <= -10) { // -10, -11, -12 we can print these normally 
+          //html += "" + j + ":00 \n"
+          html += getZone("" + j + ":00",myDate)
+        } else if (-9 <= j && j < 0) {  // Negative single digits will need the -0 added -9 -> -09
+          html += getZone("-0" + Math.abs(j) + ":00",myDate)
+        } else if ( j >= 0 && j <= 9) { // Positive single digits will need the +0 added  9 -> +09
+          html += getZone("+0" + j + ":00",myDate)
+        } else if (j >= 10) { // 10, 11, 12., we can print these normally 
+          html += getZone("+" + j + ":00",myDate)
+        }
+        
+        if (j == 0){
+          html += " <-- UTC \n"
+        } else {
+          html += "\n"
+        }
+          //html += function getZone(offset, myDate)
+      }
+    
+    //date "+DATE: %m/%d/%y%nTIME: %H:%M:%S" <- Unix going to follow this convention 
     } else if (pathArray[i].substr(0,3) == "set") {
       // Set the date 
       // set?h=1&m=2
@@ -738,13 +764,27 @@ async function handleRequest(request) {
         if (myKeyValue.length != 2){
           html += "Error attempting to set: \"" + myKeyValue.toString() + "\"\n"
         } else {
-          if (myKeyValue[0].toString() == "h"){
-            html += "Setting Hours to: " + myKeyValue[1] + "\n"
+          if (myKeyValue[0].toString() == "m"){
+            myDate.setMonth(parseInt(myKeyValue[1])-1)
+          }
+          if (myKeyValue[0].toString() == "d"){
+            myDate.setDate(parseInt(myKeyValue[1]))
+          }
+          if (myKeyValue[0].toString() == "y"){
+            myDate.setFullYear(parseInt(myKeyValue[1]))
+          }
+          if (myKeyValue[0].toString() == "H"){
             myDate.setHours(parseInt(myKeyValue[1]))
+          }
+          if (myKeyValue[0].toString() == "M"){
+            myDate.setMinutes(parseInt(myKeyValue[1]))
+          }
+          if (myKeyValue[0].toString() == "S"){
+            myDate.setSeconds(parseInt(myKeyValue[1]))
           }
         }
       }
-
+      html += getZone("+00:00", myDate) + " <-- SET CMD\n"
     } else {
       //try to find the location in the massive array first 
 
