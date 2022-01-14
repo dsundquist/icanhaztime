@@ -40,6 +40,7 @@ You can list all zones, use only the last part if there is a '/', America/Chicag
 
 ```
 curl https://www.icanhaztime.com/getzones
+    -Returns:
     Africa/Abidjann
     ...
     Zulu
@@ -89,7 +90,7 @@ Set will apply to subsequent requests
 
 ```
 curl "http://www.icanhaztime.com/set?m=1&d=18&y=1986&H=12&M=30&S=30/all"
-	-Returns: 
+    -Returns: 
     Sat Jan 18 1986 12:30:30 +00:00 <-- SET CMD
     Sat Jan 18 1986 00:30:30 -12:00
     Sat Jan 18 1986 01:30:30 -11:00
