@@ -684,7 +684,7 @@ function getZone(offset, myDate){
 async function handleRequest(request) {
 
   let html = "" // This is the response, building it as we go 
-  let daylightsavings = false // Is it Daylight Savings?  
+  let daylightsavings = true // Is it Daylight Savings?  
   let all = false
   let local = ""
   let offset = ""
@@ -798,7 +798,7 @@ async function handleRequest(request) {
             if (!daylightsavings) { 
               offset = values.split(",")[0]  // Really should be checking this here 
             } else {
-              offset = value.split(",")[1]  // Really should be checking this here 
+              offset = values.split(",")[1]  // Really should be checking this here 
             }
         }
       }
